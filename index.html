@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descodificadas</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e6ade6;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .center-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .heart-border {
+            position: relative;
+            width: 20vw;
+            height: 17.8vw;
+            margin: 10vw auto 0;
+            animation: pulse 1s infinite;
+            z-index: 2;
+        }
+
+        .heart-border::before,
+        .heart-border::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 10vw;
+            height: 14.9vw;
+            border-radius: 10vw 10vw 0 0;
+            background: linear-gradient(to bottom right, #ff9999 50%, #990000 50%);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .heart-border::before {
+            left: 10vw;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart-border::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        h2,
+        h1 {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 10px 0;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #360720;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #ff1493;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.imagensanimadas.com/data/media/373/coracao-imagem-animada-0861.gif');
+            background-size: cover;
+            animation: circles 20s infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes circles {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-100vh);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="center-container">
+        <h1 class="fade-in">DESCODIFICADAS</h1>
+        <h2 class="fade-in">Eu amo tecnologia!</h2>
+        <div class="heart-border"></div>
+    </div>
+
+    <audio id="audio" autoplay loop>
+        <source src="coracao_batendo.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <footer>
+        Elaborado por: Yasmin Aquino
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('audio');
+            audio.volume = 1;
+
+            audio.addEventListener('ended', function () {
+                audio.currentTime = 0;
+                audio.play();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
